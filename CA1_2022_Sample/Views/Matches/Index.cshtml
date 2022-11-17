@@ -1,0 +1,91 @@
+﻿@model IEnumerable<CA1_2022_Sample.Models.Match>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MatchID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MatchDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Opponent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Venue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GoalsFor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GoalsAgainst)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opponent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Venue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GoalsFor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GoalsAgainst)
+            </td>
+            <td>
+                    @Html.ActionLink("Edit", "Edit", new {  id=item.MatchID  }) |
+                    @Html.ActionLink("Details", "Details", new {  id=item.MatchID  }) |
+                    @Html.ActionLink("Delete", "Delete", new {  id=item.MatchID  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<h1>Match Statistics</h1>
+
+<table class="table">
+    <tr>
+        <th>Played Count</th>
+        <td>@ViewBag.PlayedCount</td>
+    </tr>
+    <tr>
+        <th>Won<Won/th>
+        <td>@ViewBag.Won</td>
+    </tr>
+    <tr>
+        <th>Lost</th>
+        <td>@ViewBag.Lost</td>
+    </tr>
+        <tr>
+        <th>Drew</th>
+        <td>@ViewBag.Drew</td>
+    </tr>
+    <tr>
+        <th>GoalDiff</th>
+        <td>@ViewBag.GoalDiff</td>
+    </tr>
+   
+</table>
