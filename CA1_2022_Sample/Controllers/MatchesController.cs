@@ -45,23 +45,7 @@ namespace CA1_2022_Sample.Controllers
             return View(Matches);
         }
 
-        private int CalculatePoints(IEnumerable<Match> playedM)
-        {
-            int pointsEarned = 0;
-
-            foreach (Match m in playedM)
-            {
-                if (m.GoalsFor > m.GoalsAgainst)
-                {
-                    pointsEarned += 3;
-                }
-                if (m.GoalsFor == m.GoalsAgainst)
-                {
-                    pointsEarned += 1;
-                }
-            }
-            return pointsEarned;
-        }
+        
 
         // GET: MatchesController/Details/5
         public ActionResult Details(int id)
@@ -130,6 +114,7 @@ namespace CA1_2022_Sample.Controllers
             }
         }
 
+        /*
         // GET: MatchesController/Delete/5
         public ActionResult Delete(int id)
         {
@@ -150,5 +135,6 @@ namespace CA1_2022_Sample.Controllers
                 return View();
             }
         }
+        */
     }
 }
